@@ -1,0 +1,26 @@
+<table mat-table [dataSource]="atmosphaeren" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Atmosphaere_ID">
+    <th mat-header-cell *matHeaderCellDef> Atmosphaere_ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.Atmosphaere_ID}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="AtName">
+    <th mat-header-cell *matHeaderCellDef> AtName </th>
+    <td mat-cell *matCellDef="let element"> {{element.AtName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="DurchschnittsTemp">
+    <th mat-header-cell *matHeaderCellDef> DurchschnittsTemp </th>
+    <td mat-cell *matCellDef="let element"> {{element.DurchschnittsTemp}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

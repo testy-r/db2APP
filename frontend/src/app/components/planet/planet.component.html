@@ -1,0 +1,87 @@
+<table mat-table [dataSource]="planeten" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Planet_ID">
+    <th mat-header-cell *matHeaderCellDef> Planet_ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.Planet_ID}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="PlanetName">
+    <th mat-header-cell *matHeaderCellDef> PlanetName </th>
+    <td mat-cell *matCellDef="let element"> {{element.PlanetName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Masse">
+    <th mat-header-cell *matHeaderCellDef> Masse </th>
+    <td mat-cell *matCellDef="let element"> {{element.Masse}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Durchmesser">
+    <th mat-header-cell *matHeaderCellDef> Durchmesser </th>
+    <td mat-cell *matCellDef="let element"> {{element.Durchmesser}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Dichte">
+    <th mat-header-cell *matHeaderCellDef> Dichte </th>
+    <td mat-cell *matCellDef="let element"> {{element.Dichte}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Aphel">
+    <th mat-header-cell *matHeaderCellDef> Aphel </th>
+    <td mat-cell *matCellDef="let element"> {{element.Aphel}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Periphel">
+    <th mat-header-cell *matHeaderCellDef> Periphel </th>
+    <td mat-cell *matCellDef="let element"> {{element.Periphel}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectPlanet(row)"></tr>
+</table>
+
+<div class="formDiv">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Planet Name" [(ngModel)]="selectedPlanet.PlanetName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Masse" [(ngModel)]="selectedPlanet.Masse">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Durchmesser" [(ngModel)]="selectedPlanet.Durchmesser">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Aphel" [(ngModel)]="selectedPlanet.Aphel">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Periphel" [(ngModel)]="selectedPlanet.Periphel">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Planetensystem_ID" [(ngModel)]="selectedPlanet.Planetensystem_ID">
+    </mat-form-field>
+
+
+  </div>
+  <button mat-raised-button color="primary" (click)="createPlanet()">
+    Create
+  </button>
+  <button mat-raised-button color="accent" (click)="updatePlanet()">
+    Update
+  </button>
+  <button mat-raised-button color="warn" (click)="deletePlanet()">
+    Delete
+  </button>
+</div>
+
+
